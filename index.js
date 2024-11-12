@@ -9,7 +9,7 @@ const app = express();
 //const hostname = '127.0.0.1'
 
 const port = process.env.PORT || 3000; //hosting provides the PORT
-const hostname = '0.0.0.0'; 
+//const hostname = '0.0.0.0'; 
 
 // cors - allow connection from different domains and ports
 app.use(cors())
@@ -59,5 +59,6 @@ app.post("/weather", async (req, res) => {
 
 // Listen on port 3000
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`)
+    //console.log(`Server running at http://${hostname}:${port}/`)
+    console.log(`Server is running on port ${port}`);
   })
