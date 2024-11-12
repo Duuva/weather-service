@@ -58,7 +58,7 @@ app.post("/weather", async (req, res) => {
 
 
 // Listen on port 3000
-app.listen(port, hostname, () => {
+app.listen(port, () => {
     //console.log(`Server running at http://${hostname}:${port}/`)
     console.log(`Server is running on port ${port}`);
   })
