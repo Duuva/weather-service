@@ -1,0 +1,29 @@
+/* style.css */
+
+h1 {
+    /* Set the font size to 36 pixels */
+    font-size: 36px;
+}
+  
+  /* Select all table elements */
+table {
+    margin-top: 10px;
+}
+table, th ,td {
+    border: 1px solid black;
+    padding: 5px;
+}
+  
+#container1 {
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+#inputButton {
+    margin-top: 10px;
+}
+
+#container {
+    margin-left: 10%;
+    margin-top: 4%;
+}
