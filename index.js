@@ -5,9 +5,11 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const app = express();
-const port = 3000
+//const port = 3000
 //const hostname = '127.0.0.1'
-const hostname = 'https://weather-service-wjrf.onrender.com'
+
+const port = process.env.PORT || 3000; //hosting provides the PORT
+const hostname = '0.0.0.0'; 
 
 // cors - allow connection from different domains and ports
 app.use(cors())
