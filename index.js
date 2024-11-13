@@ -41,7 +41,7 @@ app.post("/weather", async (req, res) => {
     let country = data.country
     //form the url for nodered server
     //const url = `http://192.168.0.10:1880/weather/${city}/${country}`;
-    const url = `https://2db5-91-157-230-183.ngrok-free.app/weather/${city}/${country}`;
+    const url = `https://6631-91-157-230-183.ngrok-free.app/weather/${city}/${country}`;
 
     try {
         console.log("Making a GET request to Node-Red(RaspberryPi) server")
