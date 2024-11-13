@@ -4,7 +4,9 @@ async function getWeather() {
   container.innerHTML = '';
 
   let city = document.getElementById("city").value;
+  city = city.replace(/[^\w\s]/gi, ''); //Removes non-alphanumeric characters)
   let country = document.getElementById("country").value;
+  country = country.replace(/[^\w\s]/gi, ''); //Removes non-alphanumeric characters)
   if (typeof city === 'undefined' || city == '' || city === null || typeof country === 'undefined' || country == '' || country === null) {
     // get the div element by id
     var div = document.getElementById("container");
@@ -21,7 +23,8 @@ async function getWeather() {
   else {
     let data = {'city':city, 'country':country}
     //make a request to nodejs
-    let response = await fetch('http://127.0.0.1:3000/weather/', {
+    //let response = await fetch('http://127.0.0.1:3000/weather/', {
+    let response = await fetch('https://weather-service-f622.onrender.com/weather/', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'
