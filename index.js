@@ -1,5 +1,6 @@
 const express = require('express') 
 const http = require('http');
+const https = require('https');
 const cors = require('cors')
 const fs = require('fs');
 const path = require('path');
@@ -7,6 +8,10 @@ const axios = require('axios');
 const app = express();
 //const port = 3000
 //const hostname = '127.0.0.1'
+const certContent = process.env.CERT_PATH;
+const agent = new https.Agent({
+    ca: certContent
+});
 
 const port = process.env.PORT || 3000; //hosting provides the PORT
 //const hostname = '0.0.0.0'; 
@@ -45,7 +50,8 @@ app.post("/weather", async (req, res) => {
     try {
         console.log("Making a GET request to Node-Red(RaspberryPi) server")
         //make request to Node-RED server
-        const response = await axios.get(url);
+        //const response = await axios.get(url);
+        const response = await axios.get(url, { httpsAgent: agent });
         //console.log(response)
         console.log("Received data from Node-red(RaspberryPi) Server, forwarding to clientside javascript")
         console.log("")
