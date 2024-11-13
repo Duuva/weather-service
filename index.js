@@ -52,7 +52,7 @@ app.post("/weather", async (req, res) => {
         //send the data to code.js
         res.json(response.data)
     } catch (error) {
-        console.error(error);
+        console.log(error);
         res.status(500).json({error: "Internal server error"})
     }
 })
