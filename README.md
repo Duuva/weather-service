@@ -17,7 +17,7 @@ Node-RED server set up remotely.
 ## Installation
 
 1. Clone the repository:
-git clone https://github.com/yourusername/weather-service.git
+git clone https://github.com/duuva/weather-service.git
 cd weather-service
 
 2. Install the dependencies:
