@@ -14,23 +14,17 @@ const NODE_RED_URL = process.env.NODE_RED_URL || 'https://example.ngrok-free.app
 // cors - allow connection from different domains and ports
 app.use(cors())
 
+
 // convert json string to json object (from request)
 app.use(express.json())
 
-// Serve the static HTML file from the public folder
+//Serve the static HTML file from the public folder
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+    res.sendFile(path.resolve(__dirname + '/public/index.html'));
 });
-//app.use(express.static(path.join(__dirname, 'public')));
 
-//serve the code.js file for users opening the website
-app.get('/assets/js/code.js', function(req, res) {
-    res.sendFile(path.join(__dirname + '/assets/js/code.js'));
-});
-//serve the CSS file for users opening the website
-app.get('/assets/css/style.css', function(req, res) {
-    res.sendFile(path.join(__dirname + '/assets/css/style.css'));
-});
+//serve static files using express.static to be more secure
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 app.post("/weather", async (req, res) => {
     console.log("Received POST request from clientside javascript")
