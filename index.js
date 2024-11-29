@@ -9,7 +9,7 @@ const app = express();
 
 
 const port = process.env.PORT || 3000; //hosting provides the PORT
-const NODE_RED_URL = process.env.NODE_RED_URL || 'https://example.ngrok-free.app'; // Node-RED URL from environment variables
+const NODE_RED_URL = process.env.NODE_RED_URL || 'https://example.ngrok-free.app'; //node-RED URL from environment variables
 
 // cors - allow connection from different domains and ports
 app.use(cors())
