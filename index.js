@@ -6,11 +6,10 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const app = express();
-//const port = 3000
-//const hostname = '127.0.0.1'
+
 
 const port = process.env.PORT || 3000; //hosting provides the PORT
-//const hostname = '0.0.0.0'; 
+const NODE_RED_URL = process.env.NODE_RED_URL || 'https://example.ngrok-free.app'; // Node-RED URL from environment variables
 
 // cors - allow connection from different domains and ports
 app.use(cors())
@@ -36,12 +35,10 @@ app.get('/assets/css/style.css', function(req, res) {
 app.post("/weather", async (req, res) => {
     console.log("Received POST request from clientside javascript")
     let data = req.body
-    //console.log(req.body)
     let city = data.city
     let country = data.country
     //form the url for nodered server
-    //const url = `http://192.168.0.10:1880/weather/${city}/${country}`;
-    const url = `https://6631-91-157-230-183.ngrok-free.app/weather/${city}/${country}`;
+    const url = `${NODE_RED_URL}/weather/${city}/${country}`;
 
     try {
         console.log("Making a GET request to Node-Red(RaspberryPi) server")
@@ -58,8 +55,7 @@ app.post("/weather", async (req, res) => {
 })
 
 
-// Listen on port 3000
+// Listen on port
 app.listen(port, () => {
-    //console.log(`Server running at http://${hostname}:${port}/`)
     console.log(`Server is on port ${port}`);
   })
